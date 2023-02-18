@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8">
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="index.css">
+	<title>Socket.IO chat</title>
+</head>
+
+<body>
+	<div id="firstbody">
+		<div id="window">
+			<ul id="messages"></ul>
+			<form id="form" action="">
+				<input id="input" autocomplete="off" /><button>Send</button>
+			</form>
+			<script src="/socket.io/socket.io.js"></script>
+			
+			<script>
+				var socket = io();
+				var messages = document.getElementById('messages');
+				var form = document.getElementById('form');
+				var input = document.getElementById('input');
+				
+				form.addEventListener('submit', function(e) {
+					e.preventDefault();
+					if (input.value) {
+						socket.emit('chat message', input.value);
+						input.value = '';
+					}
+				});
+				
+				socket.on('chat message', function(msg) {
+					var item = document.createElement('li');
+					item.textContent = msg;
+					messages.appendChild(item);
+					item.scrollIntoView();
+					window.scrollTo(0, document.body.scrollHeight);
+				});
+
+				socket.on('private messageout', function(msg) {
+					var item = document.createElement('li');
+					item.textContent = msg;
+					item.id = 'pomessages';
+					messages.appendChild(item);
+					item.scrollIntoView();
+					window.scrollTo(0, document.body.scrollHeight);
+				});
+				
+				socket.on('private messagein', function(msg) {
+					var item = document.createElement('li');
+					item.textContent = msg;
+					item.id = 'pimessages';
+					messages.appendChild(item);
+					item.scrollIntoView();
+					window.scrollTo(0, document.body.scrollHeight);
+				});
+				
+				socket.on('nick', function(msg) {
+					document.getElementById('nickname').innerHTML = msg
+				});
+				
+				socket.on('set-cookie', function(data) {
+					document.cookie = data;
+				});
+				
+				socket.on('clear', function(){
+					messages.innerHTML = '';
+				});
+			</script>
+		</div>
+		<div>
+			<span id="nickname" class="name"></span>
+		</div>
+	</div>
+	<div style="text-align:top">
+		<span class="joystick1"></span>
+		<span class="joystick2"></span>
+		<span class="joystick3"></span>
+		<span class="joystick4"></span>
+	</div>
+	<div style="text-align:right">
+		<span class="dot"></span>
+		<span class="dot"></span>
+	</div>
+</body>
+</html>

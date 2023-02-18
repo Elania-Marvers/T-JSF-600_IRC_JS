@@ -1,0 +1,161 @@
+body { 
+    height : 950px;
+    background-color: #75797e9d;
+    margin-bottom: auto;
+    padding-bottom: 3rem; 
+    font-family: Verdana;
+    font-size: larger; 
+    font-synthesis: small-caps;
+}
+#firstbody {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#window {
+    border-width:4px;
+    border-style:inset;
+    border-color:black;
+    background-color: #95bb69;
+    width: 1200px;
+    height : 550px;
+    padding: 40px;
+    position : relative;
+    max-height: 100%;
+    overflow-y: auto;
+    padding-bottom: 0.25rem;
+}
+#form { 
+    background: rgba(0, 0, 0, 0.15); 
+    padding: 0.25rem; 
+    bottom: 0; 
+    right: 0; 
+    left: 0;
+    display: flex; 
+    height: 3rem; 
+    border-style:inset;
+    box-sizing: border-box; 
+    backdrop-filter: blur(10px); 
+    opacity: 0.79;
+    position : fixed;
+    z-index: 100;
+}
+#input { 
+    border: none; 
+    padding: 0 1rem; 
+    flex-grow: 1; 
+    border-radius: 2rem; 
+    margin: 0.25rem; 
+    position: relative;
+}
+#input:focus { 
+    outline: none; 
+    position: relative;
+}
+#form > 
+button { 
+    background: rgb(128, 6, 6); 
+    border: none; 
+    padding: 0 1rem; 
+    margin: 0.25rem; 
+    border-radius: 3px; 
+    outline: none; color: #fff; 
+    position: relative;
+}
+#messages { 
+    list-style-type: none; 
+    margin: 0; 
+    padding: 0; 
+    position: relative;
+}
+#messages > 
+li { padding: 0.5rem 1rem; 
+    background: #abd879; 
+    position: relative;
+}
+#messages > 
+li:nth-child(odd) { 
+    background:  #c8eba0; 
+    position: relative;
+}
+
+#messages > 
+li[id="pomessages"] { padding: 0.5rem 1rem; 
+    background: #1c795a; 
+    position: relative;
+}
+
+#messages > 
+li:nth-child(odd)[id="pomessages"] { 
+    background:  #1c795a; 
+    position: relative;
+}
+
+#messages > 
+li[id="pimessages"] { padding: 0.5rem 1rem; 
+    background: #6d6412; 
+    position: relative;
+}
+
+#messages > 
+li:nth-child(odd)[id="pimessages"] { 
+    background:  #6d6412; 
+    position: relative;
+}
+
+.dot {
+    height: 100px;
+    width: 100px;
+    background: rgb(128, 6, 6); 
+    border-radius: 50%;
+    display: inline-block;
+}
+.joystick1 {
+    height: 80px;
+    width: 60px;
+    left : 10px;
+    bottom : -65px;
+    background-color: #555;
+    display:inline-block;
+    position : relative;
+    z-index: -1;
+}
+.joystick2 {
+    height: 130px;
+    width: 80px;
+    top : 680px;
+    background-color: #555;
+    display:inline-block;
+    position : absolute;
+    z-index: -1;
+}
+.joystick3 {
+    height: 80px;
+    width: 130px;
+    top : 675px;
+    background-color: #555;
+    display:inline-block;
+    position : absolute;
+    z-index: -1;
+}
+.joystick4 {
+    height: 80px;
+    width: 80px;
+    top : 615px;
+    background-color: #555;
+    display:inline-block;
+    position : absolute;
+    z-index: -1;
+}
+
+.name {
+    height: 50px;
+    width: 210px;
+    top : 625px;
+    left : 1250px;
+    background: rgb(135, 143, 143); 
+    position:absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
